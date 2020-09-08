@@ -1,11 +1,50 @@
+
 <h4>{{title}}</h4>
 <div>
   
-  <span *ngFor="let country of countries">
-    
-      
-      <p>{{country.name}} {{country.region}} <img  class="images" src={{country.flag}}/> {{country.region}}</p>
-    
-  </span>
+  <div>
+    <button class="btn btn-primary filter-button" data-filter="all">All</button>
+    <button class="btn btn-default filter-button" data-filter="Europe">Europe</button>
+    <button class="btn btn-default filter-button" data-filter="graphic">Graphic</button>
+    <button class="btn btn-default filter-button" data-filter="webdesign">Web design</button>
 </div>
+<br/>
+<div class="row">
+  <div *ngFor="let country of countries" class="col-md-3  filter {{country.region}}">
+    
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{country.flag}}" alt="Card image cap">
+        <div class="card-body">
+          <h3 class="card-title">Name: {{country.name}}</h3>
+          <h3 class="card-title">Region: {{country.region}}</h3>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+  </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+
+$(".filter-button").click(function(){
+    var value = $(this).attr('data-filter');
+    
+    if(value == "all")
+    {
+        //$('.filter').removeClass('hidden');
+        $('.filter').show('1000');
+    }
+    else
+    {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+        $(".filter").not('.'+value).hide('3000');
+        $('.filter').filter('.'+value).show('3000');
+        
+    }
+});
+
+});
+  </script>
 
