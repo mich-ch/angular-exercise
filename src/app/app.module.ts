@@ -8,19 +8,23 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { ProductsModule } from './products/products.module';
 import { CountriesModule } from './countries/countries.module';
+import { PopupListComponent } from './popup-list/popup-list.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    PopupListComponent
   ],
   imports: [
     BrowserModule,
     ProductsModule,
     HttpClientModule,
-    CountriesModule
+    CountriesModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

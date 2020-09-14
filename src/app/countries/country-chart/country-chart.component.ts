@@ -13,7 +13,7 @@ export class CountryChartComponent implements OnInit {
   countries: Country[];
   countd: number = 1;
   countd2: number ;
-
+  chart: [];
   s: number = 1 ;
 
 
@@ -32,6 +32,19 @@ export class CountryChartComponent implements OnInit {
       }
       
     })
+
+    this.chart = new Chart('canvas',{
+      type: 'line',
+      data: {
+        labels: ['Africa', 'Europe', 'Asia', 'America'],
+        datasets: [
+          {
+
+          }
+        ]
+      }
+    })
+
     //let mich =this.countd;
     this.countd2 = 22;
     var myChart = new Chart("myChart", {
@@ -40,7 +53,7 @@ export class CountryChartComponent implements OnInit {
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           datasets: [{
               label: '# of Votes',
-              data: [this.countd2, 19, 3, 5, 2, 3],
+              data: [2, 19, 3, 5, 2, 3],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
